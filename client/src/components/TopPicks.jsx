@@ -21,35 +21,37 @@ const TopPicks = () => {
   }, [cars, searchedCities])
 
   return topPicks.length > 0 &&  (
-    <section className='max-padd-container py-16 xl:py-22'>
-      <Title
-        title1={"Les meilleurs choix pour vous"}
-        title2={"Populaire dans votre région"}
-        titleStyles={"mb-10"}
-      />
+    <section className='bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/20 py-16 xl:py-32'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6'>
+        <Title
+          title1={"Les meilleurs choix pour vous"}
+          title2={"Populaire dans votre région"}
+          titleStyles={"mb-10"}
+        />
 
-      {/* CARROUSEL */}
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          600: { slidesPerView: 2, spaceBetween: 30 },
-          1124: { slidesPerView: 3, spaceBetween: 30 },
-          1300: { slidesPerView: 4, spaceBetween: 30 },
-        }}
-        modules={[Autoplay]}
-        className="h-[488px] md:h-[533px] xl:h-[422px] mt-5"
-      >
-        {topPicks.slice(0, 6).map((car) => (
-          <SwiperSlide key={car.id} className='w-full'>
-            <Item car={car} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        {/* CARROUSEL */}
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            600: { slidesPerView: 2, spaceBetween: 30 },
+            1124: { slidesPerView: 3, spaceBetween: 30 },
+            1300: { slidesPerView: 4, spaceBetween: 30 },
+          }}
+          modules={[Autoplay]}
+          className="h-[488px] md:h-[533px] xl:h-[422px] mt-5"
+        >
+          {topPicks.slice(0, 6).map((car) => (
+            <SwiperSlide key={car.id} className='w-full'>
+              <Item car={car} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   )
 }

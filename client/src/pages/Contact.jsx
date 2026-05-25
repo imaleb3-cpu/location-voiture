@@ -67,7 +67,7 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/20 pt-20">
       
       {/* ===== HERO SECTION ===== */}
       <div className="relative bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 px-4 overflow-hidden">
@@ -290,7 +290,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Siège social</h4>
-                    <p className="text-gray-500 text-sm mt-1">123 Boulevard Mohammed VI<br/>Casablanca, 20000, Maroc</p>
+                    <p className="text-gray-500 text-sm mt-1">bp 11201, Avenue Zitoune<br/>Meknes, Maroc</p>
                     <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 text-sm hover:underline mt-2 inline-flex items-center gap-1">
                       Voir sur Google Maps
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -307,7 +307,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-800">Téléphone</h4>
                     <p className="text-gray-500 text-sm mt-1">+212 5 22 88 77 66</p>
-                    <p className="text-gray-500 text-sm">+212 6 12 34 56 78</p>
+                    <p className="text-gray-500 text-sm">+212 6 24 62 00 64</p>
                   </div>
                 </div>
 
@@ -319,8 +319,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">E-mail</h4>
-                    <p className="text-gray-500 text-sm mt-1">contact@aysicar.ma</p>
-                    <p className="text-gray-500 text-sm">support@aysicar.ma</p>
+                    <p className="text-gray-500 text-sm mt-1">aysicar@gmail.ma</p>
+      
                   </div>
                 </div>
 
@@ -367,19 +367,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Urgence */}
-            <div className="bg-red-50 border border-red-100 rounded-3xl p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                </div>
-                <h4 className="font-bold text-red-700">Assistance urgente</h4>
-              </div>
-              <p className="text-red-600 text-sm">En cas de panne ou d'accident, notre hotline est disponible 24h/24 :</p>
-              <a href="tel:+212612345678" className="text-red-700 font-bold text-lg mt-1 block hover:underline">+212 6 12 34 56 78</a>
-            </div>
+
           </div>
         </div>
 
@@ -407,19 +395,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* ===== CTA FINAL ===== */}
-        <div className="text-center bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl p-12 text-white shadow-xl shadow-blue-500/20">
-          <h2 className="text-3xl font-bold mb-4">Prêt à rouler ?</h2>
-          <p className="text-blue-100 mb-8 max-w-xl mx-auto">Découvrez notre flotte de véhicules premium et réservez en quelques clics. Livraison gratuite à Casablanca.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/cars" className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-colors shadow-lg">
-              Voir les véhicules
-            </a>
-            <a href="tel:+212522887766" className="px-8 py-4 bg-blue-400/30 text-white border border-white/30 rounded-xl font-semibold hover:bg-blue-400/50 transition-colors">
-              Appeler maintenant
-            </a>
-          </div>
-        </div>
+
 
       </div>
     </div>

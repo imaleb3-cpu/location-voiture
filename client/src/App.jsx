@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Routes, useLocation} from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Header from './components/Header'
 import Home from './pages/Home'
 import Listing from './pages/Listing'
@@ -13,18 +13,20 @@ import AddCar from './pages/owner/AddCar'
 import ListCar from './pages/owner/ListCar'
 import Dashboard from './pages/owner/Dashboard'    // ← ajouter cet import
 import { Toaster } from 'react-hot-toast'
-import {useAppContext} from './context/AppContext'
+import { useAppContext } from './context/AppContext'
 import AgencyReg from './components/owner/AgencyReg'
+import About from './pages/About';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 const App = () => {
-  const {showAgencyReg} = useAppContext()
+  const { showAgencyReg } = useAppContext()
   const location = useLocation()
   const isOwnerPath = location.pathname.includes('owner')
 
   return (
     <main>
-      {!isOwnerPath && <Header/>}
+      {!isOwnerPath && <Header />}
       {showAgencyReg && <AgencyReg />}
-      <Toaster position='bottom-right'/>
+      <Toaster position='bottom-right' />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/listing' element={<Listing />} />
@@ -37,6 +39,9 @@ const App = () => {
           <Route path='add-car' element={<AddCar />} />
           <Route path='list-car' element={<ListCar />} />
         </Route>
+        <Route path="/about" element={<About />} />
+        <Route path='/privacy' element={<PrivacyPolicy />} />
+
 
       </Routes>
       {!isOwnerPath && <Footer />}
