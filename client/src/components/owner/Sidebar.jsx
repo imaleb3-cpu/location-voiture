@@ -52,10 +52,9 @@ const Sidebar = () => {
                             to={item.path}
                             end={item.path === "/owner"}
                             className={({ isActive }) =>
-                                `flex items-center gap-2 px-6 py-4 text-sm font-semibold border-b-2 transition-colors ${
-                                    isActive
-                                        ? "border-solid text-solid"
-                                        : "border-transparent text-gray-500 hover:text-gray-800"
+                                `flex items-center gap-2 px-6 py-4 text-sm font-semibold border-b-2 transition-colors ${isActive
+                                    ? "border-solid text-solid"
+                                    : "border-transparent text-gray-500 hover:text-gray-800"
                                 }`
                             }
                         >

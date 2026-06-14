@@ -13,8 +13,18 @@ import bookingRouter from "./routes/bookingRoute.js"
 
 connectCloudinary()
 const app = express()  //initialize express application
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:4000',
+]
+
+// Ajouter l'URL du client Vercel si définie dans les variables d'environnement
+if (process.env.CLIENT_URL) {
+    allowedOrigins.push(process.env.CLIENT_URL)
+}
+
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:4000'],
+    origin: allowedOrigins,
     credentials: true
 }))  //enables cross-origin resource sharing
 
