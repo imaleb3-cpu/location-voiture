@@ -188,6 +188,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -195,7 +199,8 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
   "clientVersion": "6.6.0",
@@ -213,8 +218,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id                   String    @id\n  username             String\n  email                String    @unique\n  image                String\n  role                 String    @default(\"user\")\n  recentSearchedCities String[]\n  createdAt            DateTime  @default(now())\n  updatedAt            DateTime  @updatedAt\n  agencies             Agency[]\n  bookings             Booking[]\n}\n\nmodel Agency {\n  id        String   @id @default(cuid())\n  name      String\n  address   String\n  contact   String\n  email     String\n  owner     String\n  city      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  user     User      @relation(fields: [owner], references: [id])\n  cars     Car[]\n  bookings Booking[]\n}\n\nmodel Car {\n  id           String   @id @default(cuid())\n  agency       String\n  title        String\n  description  String\n  city         String\n  country      String\n  address      String\n  odometer     Int\n  bodyType     String\n  price        Float\n  transmission String\n  seats        Int\n  fuelType     String\n  features     String[]\n  images       String[]\n  isAvailable  Boolean  @default(true)\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n\n  agencyRef Agency    @relation(fields: [agency], references: [id])\n  bookings  Booking[]\n}\n\nmodel Booking {\n  id            String   @id @default(cuid())\n  user          String\n  car           String\n  agency        String\n  pickUpDate    DateTime\n  dropOffDate   DateTime\n  totalPrice    Float\n  status        String   @default(\"pending\")\n  paymentMethod String   @default(\"Pay at pickup\")\n  isPaid        Boolean  @default(false)\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n\n  userRef   User   @relation(fields: [user], references: [id])\n  carRef    Car    @relation(fields: [car], references: [id])\n  agencyRef Agency @relation(fields: [agency], references: [id])\n}\n",
-  "inlineSchemaHash": "321744acf33b02a8629689f2fd04092172b7b9764b25ee9167b2ce308ef9e157",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./generated/client\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id                   String    @id\n  username             String\n  email                String    @unique\n  image                String\n  role                 String    @default(\"user\")\n  recentSearchedCities String[]\n  createdAt            DateTime  @default(now())\n  updatedAt            DateTime  @updatedAt\n  agencies             Agency[]\n  bookings             Booking[]\n}\n\nmodel Agency {\n  id        String   @id @default(cuid())\n  name      String\n  address   String\n  contact   String\n  email     String\n  owner     String\n  city      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  user     User      @relation(fields: [owner], references: [id])\n  cars     Car[]\n  bookings Booking[]\n}\n\nmodel Car {\n  id           String   @id @default(cuid())\n  agency       String\n  title        String\n  description  String\n  city         String\n  country      String\n  address      String\n  odometer     Int\n  bodyType     String\n  price        Float\n  transmission String\n  seats        Int\n  fuelType     String\n  features     String[]\n  images       String[]\n  isAvailable  Boolean  @default(true)\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n\n  agencyRef Agency    @relation(fields: [agency], references: [id])\n  bookings  Booking[]\n}\n\nmodel Booking {\n  id            String   @id @default(cuid())\n  user          String\n  car           String\n  agency        String\n  pickUpDate    DateTime\n  dropOffDate   DateTime\n  totalPrice    Float\n  status        String   @default(\"pending\")\n  paymentMethod String   @default(\"Pay at pickup\")\n  isPaid        Boolean  @default(false)\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n\n  userRef   User   @relation(fields: [user], references: [id])\n  carRef    Car    @relation(fields: [car], references: [id])\n  agencyRef Agency @relation(fields: [agency], references: [id])\n}\n",
+  "inlineSchemaHash": "afccd8cfee57bd714c69072a2b1fcf60aedf08a303105aaa9cec79d3c9e089f6",
   "copyEngine": true
 }
 
@@ -255,6 +260,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "prisma/generated/client/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "prisma/generated/client/schema.prisma")
